@@ -1,0 +1,134 @@
+[
+    {
+        "name": "idDireccion",
+        "dbType": "integer,true",
+        "htmlType": null,
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": false,
+        "inView": false
+    },
+    {
+        "name": "idCiudad",
+        "dbType": "integer,false",
+        "htmlType": null,
+        "validations": "required|integer|integer",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "calle",
+        "dbType": "string,30",
+        "htmlType": "text",
+        "validations": "required|string|max:30|string|max:30",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "calle_transversal",
+        "dbType": "string,60:nullable",
+        "htmlType": "text",
+        "validations": "nullable|string|max:60|nullable|string|max:60",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "numero_casa",
+        "dbType": "string,10:nullable",
+        "htmlType": "text",
+        "validations": "nullable|string|max:10|nullable|string|max:10",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "barrio",
+        "dbType": "string,15",
+        "htmlType": "text",
+        "validations": "required|string|max:15|string|max:15",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "link_mapa",
+        "dbType": "string,255:nullable",
+        "htmlType": "text",
+        "validations": "nullable|string|max:255|nullable|string|max:255",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "usuario_act",
+        "dbType": "string,25",
+        "htmlType": "text",
+        "validations": "required|string|max:25|string|max:25",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "fecha_act",
+        "dbType": "datetime",
+        "htmlType": "date",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "idCliente",
+        "dbType": "integer,false",
+        "htmlType": null,
+        "validations": "required|integer|integer",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "type": "relation",
+        "relation": "mt1,Ciudad,idCiudad"
+    },
+    {
+        "type": "relation",
+        "relation": "mt1,Cliente,idCliente"
+    },
+    {
+        "type": "relation",
+        "relation": "1tm,Entrega,idDireccionEntrega"
+    }
+]

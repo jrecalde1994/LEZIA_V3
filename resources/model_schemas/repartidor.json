@@ -1,0 +1,118 @@
+[
+    {
+        "name": "idRepartidor",
+        "dbType": "integer,true",
+        "htmlType": null,
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": false,
+        "inView": false
+    },
+    {
+        "name": "Cedula",
+        "dbType": "string,20",
+        "htmlType": "text",
+        "validations": "required|string|max:20|string|max:20",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "Nombre",
+        "dbType": "string,100",
+        "htmlType": "text",
+        "validations": "required|string|max:100|string|max:100",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "Apellido",
+        "dbType": "string,100",
+        "htmlType": "text",
+        "validations": "required|string|max:100|string|max:100",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "telefono",
+        "dbType": "string,20:nullable",
+        "htmlType": "text",
+        "validations": "nullable|string|max:20|nullable|string|max:20",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "fecha_act",
+        "dbType": "datetime",
+        "htmlType": "date",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "usuario_act",
+        "dbType": "string,25",
+        "htmlType": "text",
+        "validations": "required|string|max:25|string|max:25",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "estado_repartidor",
+        "dbType": "string,20:nullable",
+        "htmlType": "text",
+        "validations": "nullable|string|max:20|nullable|string|max:20",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "idLogin",
+        "dbType": "integer,false",
+        "htmlType": null,
+        "validations": "required|integer|integer",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "type": "relation",
+        "relation": "mt1,Login,idLogin"
+    },
+    {
+        "type": "relation",
+        "relation": "1tm,Entrega,idRepartidor"
+    }
+]

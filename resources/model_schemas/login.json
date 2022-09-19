@@ -1,0 +1,86 @@
+[
+    {
+        "name": "idLogin",
+        "dbType": "integer,true",
+        "htmlType": null,
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": false,
+        "inView": false
+    },
+    {
+        "name": "usuario",
+        "dbType": "string,25",
+        "htmlType": "text",
+        "validations": "required|string|max:25|string|max:25",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "clave",
+        "dbType": "string,300",
+        "htmlType": "text",
+        "validations": "required|string|max:300|string|max:300",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "perfil",
+        "dbType": "string,10",
+        "htmlType": "text",
+        "validations": "required|string|max:10|string|max:10",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "usuario_act",
+        "dbType": "string,25",
+        "htmlType": "text",
+        "validations": "required|string|max:25|string|max:25",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "fecha_act",
+        "dbType": "datetime",
+        "htmlType": "date",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "type": "relation",
+        "relation": "1tm,Cliente,idLogin"
+    },
+    {
+        "type": "relation",
+        "relation": "1tm,Repartidor,idLogin"
+    },
+    {
+        "type": "relation",
+        "relation": "mtm,Caja,vendedor"
+    }
+]
