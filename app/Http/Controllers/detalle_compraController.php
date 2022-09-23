@@ -46,6 +46,7 @@ class detalle_compraController extends AppBaseController
     {
         $producto = producto::pluck('nombre_producto', 'id');
         $selectCompras = compra::pluck('numero_factura', 'id');
+        
         return view('detalle_compras.create',compact('producto','selectCompras'));
     }
 

@@ -17,7 +17,7 @@
 
         <div class="card">
 
-            {!! Form::open(['route' => 'compras.store']) !!}
+            {!! Form::open(['route' => 'compras.store','id'=>'transactionForm']) !!}
 
             <div class="card-body">
 
@@ -35,5 +35,6 @@
             {!! Form::close() !!}
 
         </div>
+
     </div>
 @endsection

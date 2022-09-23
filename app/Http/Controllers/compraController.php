@@ -6,20 +6,25 @@ use App\Http\Requests\CreatecompraRequest;
 use App\Http\Requests\UpdatecompraRequest;
 use App\Repositories\compraRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\detalle_compra;
 use App\Models\proveedor;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
 use App\Models\producto;
+use App\Repositories\detalle_compraRepository;
 
 class compraController extends AppBaseController
 {
     /** @var compraRepository $compraRepository*/
     private $compraRepository;
+    private $detalleCompraRepository;
 
-    public function __construct(compraRepository $compraRepo)
+    public function __construct(compraRepository $compraRepo,detalle_compraRepository $detallecompraRepo)
     {
         $this->compraRepository = $compraRepo;
+        $this->detalleCompraRepository = $detallecompraRepo;
+
     }
 
     /**
@@ -45,7 +50,8 @@ class compraController extends AppBaseController
     public function create()
     {
         $proveedor = proveedor::pluck('Razon_social', 'id');
-        return view('compras.create',compact('proveedor'));
+        $producto = producto::pluck('nombre_producto','id');
+        return view('compras.create',compact('proveedor','producto'));
     }
 
     /**
@@ -60,13 +66,32 @@ class compraController extends AppBaseController
         $input = $request->all();
 
         $compra = $this->compraRepository->create($input);
+        $DetalleCompra = array('idCompra' => $compra->id, 
+                          'idProducto' => $request->idProducto,
+                          'cantidad' => $request->cantidad,
+                          'precio_compra' => $request->precio_compra,
+                          'usuario_act' => $request->usuario_act,
+                          'fecha_act' => $request->fecha_act);
+
+        $detalleCompra = $this->detalleCompraRepository->create($DetalleCompra);
+
+        /*$detalleCompra = $this->detalleCompra->newInstance($compra->id,
+                                                           $request->idProducto,
+                                                           $request->cantidad,
+                                                           $request->precio_compra,
+                                                           $request->usuario_act,
+                                                           $request->fecha_act);
+        $detalleCompra->save();*/
+
+       /* $compra = $this->compraRepository->create($input);
 
         $selectCompras = array('numero_factura' => $compra->numero_factura, 'id' => $compra->id);
         $producto = producto::pluck('nombre_producto', 'id');
 
-        Flash::success('Guardado correctamente.');
+        Flash::success('Guardado correctamente.');*/
 
-        return redirect(route('detalleCompras.create',compact('selectCompras','producto')));
+        Flash::success('Guardado correctamente.');
+        return redirect(route('compra.index'));
     }
 
     /**
