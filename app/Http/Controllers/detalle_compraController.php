@@ -152,13 +152,13 @@ class detalle_compraController extends AppBaseController
         if (empty($detalleCompra)) {
             Flash::error('Dato no encontrado');
 
-            return redirect(route('detalleCompras.index'));
+            return redirect(route('compras.index'));
         }
 
         $this->detalleCompraRepository->delete($id);
 
         Flash::success('Eliminado correctamente.');
 
-        return redirect(route('detalleCompras.index'));
+        return redirect(route('compras.index'));
     }
 }

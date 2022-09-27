@@ -13,12 +13,14 @@ use Flash;
 use Response;
 use App\Models\producto;
 use App\Repositories\detalle_compraRepository;
+use DB;
 
 class compraController extends AppBaseController
 {
     /** @var compraRepository $compraRepository*/
     private $compraRepository;
     private $detalleCompraRepository;
+    private $idCompra;
 
     public function __construct(compraRepository $compraRepo,detalle_compraRepository $detallecompraRepo)
     {
@@ -51,7 +53,8 @@ class compraController extends AppBaseController
     {
         $proveedor = proveedor::pluck('Razon_social', 'id');
         $producto = producto::pluck('nombre_producto','id');
-        return view('compras.create',compact('proveedor','producto'));
+        $detallecompra = "";
+        return view('compras.create',compact('proveedor','producto','detallecompra'));
     }
 
     /**
@@ -66,32 +69,22 @@ class compraController extends AppBaseController
         $input = $request->all();
 
         $compra = $this->compraRepository->create($input);
-        $DetalleCompra = array('idCompra' => $compra->id, 
-                          'idProducto' => $request->idProducto,
-                          'cantidad' => $request->cantidad,
-                          'precio_compra' => $request->precio_compra,
-                          'usuario_act' => $request->usuario_act,
-                          'fecha_act' => $request->fecha_act);
+        $indice = count(explode(',',$request->idProdhideen[0]));
+        
+        for($i = 0; $i< $indice;$i++)
+        {
+            $DetalleCompra = array('idCompra' => $compra->id, 
+                                   'idProducto' => explode(',',$request->idProdhideen[0])[$i],
+                                   'cantidad' => explode(',',$request->cantidadhidden[0])[$i],
+                                   'precio_compra' => explode(',',$request->preciocomprahidden[0])[$i],
+                                   'usuario_act' => $request->usuario_act,
+                                   'fecha_act' => $request->fecha_act);
+            $detalleCompra = $this->detalleCompraRepository->create($DetalleCompra);
 
-        $detalleCompra = $this->detalleCompraRepository->create($DetalleCompra);
-
-        /*$detalleCompra = $this->detalleCompra->newInstance($compra->id,
-                                                           $request->idProducto,
-                                                           $request->cantidad,
-                                                           $request->precio_compra,
-                                                           $request->usuario_act,
-                                                           $request->fecha_act);
-        $detalleCompra->save();*/
-
-       /* $compra = $this->compraRepository->create($input);
-
-        $selectCompras = array('numero_factura' => $compra->numero_factura, 'id' => $compra->id);
-        $producto = producto::pluck('nombre_producto', 'id');
-
-        Flash::success('Guardado correctamente.');*/
-
+        }
+        
         Flash::success('Guardado correctamente.');
-        return redirect(route('compra.index'));
+        return redirect(route('compras.index'));
     }
 
     /**
@@ -124,7 +117,12 @@ class compraController extends AppBaseController
     public function edit($id)
     {
         $compra = $this->compraRepository->find($id);
+
+        $detallecompra = DB::table('detalle_compra')->where('idCompra', '=', $id)->get();
         $proveedor = proveedor::where('id',$compra->idProveedor)->pluck('Razon_social','id');
+        $producto = producto::pluck('nombre_producto', 'id');
+        $detalleProducto = DB::table('producto')->get();
+
 
         if (empty($compra)) {
             Flash::error('Dato no encontrado');
@@ -132,7 +130,7 @@ class compraController extends AppBaseController
             return redirect(route('compras.index'));
         }
 
-        return view('compras.edit',compact('proveedor'))->with('compra', $compra);
+        return view('compras.edit',compact('proveedor','producto','detallecompra','detalleProducto'))->with('compra', $compra);
     }
 
     /**
@@ -146,6 +144,19 @@ class compraController extends AppBaseController
     public function update($id, UpdatecompraRequest $request)
     {
         $compra = $this->compraRepository->find($id);
+        $indice = count(explode(',',$request->idProdhideen[0]));
+        
+        for($i = 0; $i< $indice;$i++)
+        {
+            $DetalleCompra = array('idCompra' => $id, 
+                                   'idProducto' => explode(',',$request->idProdhideen[0])[$i],
+                                   'cantidad' => explode(',',$request->cantidadhidden[0])[$i],
+                                   'precio_compra' => explode(',',$request->preciocomprahidden[0])[$i],
+                                   'usuario_act' => $request->usuario_act,
+                                   'fecha_act' => $request->fecha_act);
+            $detalleCompra = $this->detalleCompraRepository->create($DetalleCompra);
+
+        }
 
         if (empty($compra)) {
             Flash::error('Dato no encontrado');
@@ -154,6 +165,7 @@ class compraController extends AppBaseController
         }
 
         $compra = $this->compraRepository->update($request->all(), $id);
+        $detallecompra = DB::table('detalle_compra')->where('idCompra', '=', $id)->get();
 
         Flash::success('Actualizado correctamente.');
 
@@ -184,5 +196,24 @@ class compraController extends AppBaseController
         Flash::success('Eliminado correctamente.');
 
         return redirect(route('compras.index'));
+    }
+
+    public function Eliminar($id)
+    {
+        dd($_GET['id']);
+        $detalleCompra = $this->detalleCompraRepository->find($id);
+
+        if (empty($detalleCompra)) {
+            Flash::error('Dato no encontrado');
+
+            return redirect(route('compras.index'));
+        }
+
+        $this->detalleCompraRepository->delete($id);
+
+        Flash::success('Eliminado correctamente.');
+
+        return redirect(route('compras.index'));
+
     }
 }
