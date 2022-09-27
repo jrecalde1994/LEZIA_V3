@@ -58,7 +58,7 @@ class ciudadController extends AppBaseController
 
         $ciudad = $this->ciudadRepository->create($input);
 
-        Flash::success('Ciudad saved successfully.');
+        Flash::success('Guardado correctamente.');
 
         return redirect(route('ciudads.index'));
     }
@@ -75,7 +75,7 @@ class ciudadController extends AppBaseController
         $ciudad = $this->ciudadRepository->find($id);
 
         if (empty($ciudad)) {
-            Flash::error('Ciudad not found');
+            Flash::error('Ciudad no encontrada');
 
             return redirect(route('ciudads.index'));
         }
@@ -95,7 +95,7 @@ class ciudadController extends AppBaseController
         $ciudad = $this->ciudadRepository->find($id);
 
         if (empty($ciudad)) {
-            Flash::error('Ciudad not found');
+            Flash::error('Ciudad no encontrada');
 
             return redirect(route('ciudads.index'));
         }
@@ -116,14 +116,14 @@ class ciudadController extends AppBaseController
         $ciudad = $this->ciudadRepository->find($id);
 
         if (empty($ciudad)) {
-            Flash::error('Ciudad not found');
+            Flash::error('Ciudad no encontrada');
 
             return redirect(route('ciudads.index'));
         }
 
         $ciudad = $this->ciudadRepository->update($request->all(), $id);
 
-        Flash::success('Ciudad updated successfully.');
+        Flash::success('Actualizado correctamente.');
 
         return redirect(route('ciudads.index'));
     }
@@ -142,14 +142,14 @@ class ciudadController extends AppBaseController
         $ciudad = $this->ciudadRepository->find($id);
 
         if (empty($ciudad)) {
-            Flash::error('Ciudad not found');
+            Flash::error('Ciudad no encontrada');
 
             return redirect(route('ciudads.index'));
         }
 
         $this->ciudadRepository->delete($id);
 
-        Flash::success('Ciudad deleted successfully.');
+        Flash::success('Eliminado correctamente.');
 
         return redirect(route('ciudads.index'));
     }

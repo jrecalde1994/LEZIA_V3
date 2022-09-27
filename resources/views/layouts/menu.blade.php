@@ -9,7 +9,7 @@
 <li class="nav-item">
     <a href="{{ route('ciudads.index') }}"
        class="nav-link {{ Request::is('ciudads*') ? 'active' : '' }}">
-        <p>Ciudads</p>
+        <p>Ciudad</p>
     </a>
 </li>
 
@@ -41,7 +41,7 @@
 <li class="nav-item">
     <a href="{{ route('direccions.index') }}"
        class="nav-link {{ Request::is('direccions*') ? 'active' : '' }}">
-        <p>Direccions</p>
+        <p>Direcciones</p>
     </a>
 </li>
 

@@ -2,10 +2,9 @@
     <table class="table" id="ciudads-table">
         <thead>
         <tr>
-            <th>Nombre Ciudad</th>
+        <th>Nombre Ciudad</th>
         <th>Usuario Act</th>
         <th>Fecha Act</th>
-        <th>Estado Ciudad</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
@@ -15,7 +14,6 @@
                 <td>{{ $ciudad->nombre_ciudad }}</td>
             <td>{{ $ciudad->usuario_act }}</td>
             <td>{{ $ciudad->fecha_act }}</td>
-            <td>{{ $ciudad->estado_ciudad }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['ciudads.destroy', $ciudad->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
