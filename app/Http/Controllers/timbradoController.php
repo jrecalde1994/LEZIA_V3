@@ -58,7 +58,7 @@ class timbradoController extends AppBaseController
 
         $timbrado = $this->timbradoRepository->create($input);
 
-        Flash::success('Timbrado saved successfully.');
+        Flash::success('Timbrado ha sido guardado correctamente.');
 
         return redirect(route('timbrados.index'));
     }
@@ -75,7 +75,7 @@ class timbradoController extends AppBaseController
         $timbrado = $this->timbradoRepository->find($id);
 
         if (empty($timbrado)) {
-            Flash::error('Timbrado not found');
+            Flash::error('Timbrado no se ha encontrado.');
 
             return redirect(route('timbrados.index'));
         }
@@ -95,7 +95,7 @@ class timbradoController extends AppBaseController
         $timbrado = $this->timbradoRepository->find($id);
 
         if (empty($timbrado)) {
-            Flash::error('Timbrado not found');
+            Flash::error('Timbrado no se ha encontrado.');
 
             return redirect(route('timbrados.index'));
         }
@@ -116,14 +116,14 @@ class timbradoController extends AppBaseController
         $timbrado = $this->timbradoRepository->find($id);
 
         if (empty($timbrado)) {
-            Flash::error('Timbrado not found');
+            Flash::error('Timbrado no se ha encontrado.');
 
             return redirect(route('timbrados.index'));
         }
 
         $timbrado = $this->timbradoRepository->update($request->all(), $id);
 
-        Flash::success('Timbrado updated successfully.');
+        Flash::success('Timbrado ha sido modificado correctamente.');
 
         return redirect(route('timbrados.index'));
     }
@@ -142,14 +142,14 @@ class timbradoController extends AppBaseController
         $timbrado = $this->timbradoRepository->find($id);
 
         if (empty($timbrado)) {
-            Flash::error('Timbrado not found');
+            Flash::error('Timbrado no se ha encontrado.');
 
             return redirect(route('timbrados.index'));
         }
 
         $this->timbradoRepository->delete($id);
 
-        Flash::success('Timbrado deleted successfully.');
+        Flash::success('Timbrado ha sido borrado correctamente.');
 
         return redirect(route('timbrados.index'));
     }

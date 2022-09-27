@@ -58,7 +58,7 @@ class direccionController extends AppBaseController
 
         $direccion = $this->direccionRepository->create($input);
 
-        Flash::success('Direccion saved successfully.');
+        Flash::success('Direccion ha sido guardado correctamente.');
 
         return redirect(route('direccions.index'));
     }
@@ -75,7 +75,7 @@ class direccionController extends AppBaseController
         $direccion = $this->direccionRepository->find($id);
 
         if (empty($direccion)) {
-            Flash::error('Direccion not found');
+            Flash::error('Direccion no se ha encontrado.');
 
             return redirect(route('direccions.index'));
         }
@@ -95,7 +95,7 @@ class direccionController extends AppBaseController
         $direccion = $this->direccionRepository->find($id);
 
         if (empty($direccion)) {
-            Flash::error('Direccion not found');
+            Flash::error('Direccion no se ha encontrado.');
 
             return redirect(route('direccions.index'));
         }
@@ -116,14 +116,14 @@ class direccionController extends AppBaseController
         $direccion = $this->direccionRepository->find($id);
 
         if (empty($direccion)) {
-            Flash::error('Direccion not found');
+            Flash::error('Direccion no se ha encontrado.');
 
             return redirect(route('direccions.index'));
         }
 
         $direccion = $this->direccionRepository->update($request->all(), $id);
 
-        Flash::success('Direccion updated successfully.');
+        Flash::success('Direccion ha sido modificado correctamente.');
 
         return redirect(route('direccions.index'));
     }
@@ -142,14 +142,14 @@ class direccionController extends AppBaseController
         $direccion = $this->direccionRepository->find($id);
 
         if (empty($direccion)) {
-            Flash::error('Direccion not found');
+            Flash::error('Direccion no se ha encontrado.');
 
             return redirect(route('direccions.index'));
         }
 
         $this->direccionRepository->delete($id);
 
-        Flash::success('Direccion deleted successfully.');
+        Flash::success('Direccion ha sido borrado correctamente.');
 
         return redirect(route('direccions.index'));
     }

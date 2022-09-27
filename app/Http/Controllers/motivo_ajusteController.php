@@ -58,7 +58,7 @@ class motivo_ajusteController extends AppBaseController
 
         $motivoAjuste = $this->motivoAjusteRepository->create($input);
 
-        Flash::success('Motivo Ajuste saved successfully.');
+        Flash::success('Motivo Ajuste ha sido guardado correctamente.');
 
         return redirect(route('motivoAjustes.index'));
     }
@@ -75,7 +75,7 @@ class motivo_ajusteController extends AppBaseController
         $motivoAjuste = $this->motivoAjusteRepository->find($id);
 
         if (empty($motivoAjuste)) {
-            Flash::error('Motivo Ajuste not found');
+            Flash::error('Motivo Ajuste no se ha encontrado.');
 
             return redirect(route('motivoAjustes.index'));
         }
@@ -95,7 +95,7 @@ class motivo_ajusteController extends AppBaseController
         $motivoAjuste = $this->motivoAjusteRepository->find($id);
 
         if (empty($motivoAjuste)) {
-            Flash::error('Motivo Ajuste not found');
+            Flash::error('Motivo Ajuste no se ha encontrado.');
 
             return redirect(route('motivoAjustes.index'));
         }
@@ -116,14 +116,14 @@ class motivo_ajusteController extends AppBaseController
         $motivoAjuste = $this->motivoAjusteRepository->find($id);
 
         if (empty($motivoAjuste)) {
-            Flash::error('Motivo Ajuste not found');
+            Flash::error('Motivo Ajuste no se ha encontrado.');
 
             return redirect(route('motivoAjustes.index'));
         }
 
         $motivoAjuste = $this->motivoAjusteRepository->update($request->all(), $id);
 
-        Flash::success('Motivo Ajuste updated successfully.');
+        Flash::success('Motivo Ajuste ha sido modificado correctamente.');
 
         return redirect(route('motivoAjustes.index'));
     }
@@ -142,14 +142,14 @@ class motivo_ajusteController extends AppBaseController
         $motivoAjuste = $this->motivoAjusteRepository->find($id);
 
         if (empty($motivoAjuste)) {
-            Flash::error('Motivo Ajuste not found');
+            Flash::error('Motivo Ajuste no se ha encontrado.');
 
             return redirect(route('motivoAjustes.index'));
         }
 
         $this->motivoAjusteRepository->delete($id);
 
-        Flash::success('Motivo Ajuste deleted successfully.');
+        Flash::success('Motivo Ajuste ha sido borrado correctamente.');
 
         return redirect(route('motivoAjustes.index'));
     }

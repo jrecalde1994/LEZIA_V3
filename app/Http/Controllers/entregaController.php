@@ -58,7 +58,7 @@ class entregaController extends AppBaseController
 
         $entrega = $this->entregaRepository->create($input);
 
-        Flash::success('Entrega saved successfully.');
+        Flash::success('Entrega ha sido guardado correctamente.');
 
         return redirect(route('entregas.index'));
     }
@@ -75,7 +75,7 @@ class entregaController extends AppBaseController
         $entrega = $this->entregaRepository->find($id);
 
         if (empty($entrega)) {
-            Flash::error('Entrega not found');
+            Flash::error('Entrega no se ha encontrado.');
 
             return redirect(route('entregas.index'));
         }
@@ -95,7 +95,7 @@ class entregaController extends AppBaseController
         $entrega = $this->entregaRepository->find($id);
 
         if (empty($entrega)) {
-            Flash::error('Entrega not found');
+            Flash::error('Entrega no se ha encontrado.');
 
             return redirect(route('entregas.index'));
         }
@@ -116,14 +116,14 @@ class entregaController extends AppBaseController
         $entrega = $this->entregaRepository->find($id);
 
         if (empty($entrega)) {
-            Flash::error('Entrega not found');
+            Flash::error('Entrega no se ha encontrado.');
 
             return redirect(route('entregas.index'));
         }
 
         $entrega = $this->entregaRepository->update($request->all(), $id);
 
-        Flash::success('Entrega updated successfully.');
+        Flash::success('Entrega ha sido modificado correctamente.');
 
         return redirect(route('entregas.index'));
     }
@@ -142,14 +142,14 @@ class entregaController extends AppBaseController
         $entrega = $this->entregaRepository->find($id);
 
         if (empty($entrega)) {
-            Flash::error('Entrega not found');
+            Flash::error('Entrega no se ha encontrado.');
 
             return redirect(route('entregas.index'));
         }
 
         $this->entregaRepository->delete($id);
 
-        Flash::success('Entrega deleted successfully.');
+        Flash::success('Entrega ha sido borrado correctamente.');
 
         return redirect(route('entregas.index'));
     }

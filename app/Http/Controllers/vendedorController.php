@@ -58,7 +58,7 @@ class vendedorController extends AppBaseController
 
         $vendedor = $this->vendedorRepository->create($input);
 
-        Flash::success('Vendedor saved successfully.');
+        Flash::success('Vendedor ha sido guardado correctamente.');
 
         return redirect(route('vendedors.index'));
     }
@@ -75,7 +75,7 @@ class vendedorController extends AppBaseController
         $vendedor = $this->vendedorRepository->find($id);
 
         if (empty($vendedor)) {
-            Flash::error('Vendedor not found');
+            Flash::error('Vendedor no se ha encontrado.');
 
             return redirect(route('vendedors.index'));
         }
@@ -95,7 +95,7 @@ class vendedorController extends AppBaseController
         $vendedor = $this->vendedorRepository->find($id);
 
         if (empty($vendedor)) {
-            Flash::error('Vendedor not found');
+            Flash::error('Vendedor no se ha encontrado.');
 
             return redirect(route('vendedors.index'));
         }
@@ -116,14 +116,14 @@ class vendedorController extends AppBaseController
         $vendedor = $this->vendedorRepository->find($id);
 
         if (empty($vendedor)) {
-            Flash::error('Vendedor not found');
+            Flash::error('Vendedor no se ha encontrado.');
 
             return redirect(route('vendedors.index'));
         }
 
         $vendedor = $this->vendedorRepository->update($request->all(), $id);
 
-        Flash::success('Vendedor updated successfully.');
+        Flash::success('Vendedor ha sido modificado correctamente.');
 
         return redirect(route('vendedors.index'));
     }
@@ -142,14 +142,14 @@ class vendedorController extends AppBaseController
         $vendedor = $this->vendedorRepository->find($id);
 
         if (empty($vendedor)) {
-            Flash::error('Vendedor not found');
+            Flash::error('Vendedor no se ha encontrado.');
 
             return redirect(route('vendedors.index'));
         }
 
         $this->vendedorRepository->delete($id);
 
-        Flash::success('Vendedor deleted successfully.');
+        Flash::success('Vendedor ha sido borrado correctamente.');
 
         return redirect(route('vendedors.index'));
     }

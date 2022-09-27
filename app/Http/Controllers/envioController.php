@@ -58,7 +58,7 @@ class envioController extends AppBaseController
 
         $envio = $this->envioRepository->create($input);
 
-        Flash::success('Envio saved successfully.');
+        Flash::success('Envio ha sido guardado correctamente.');
 
         return redirect(route('envios.index'));
     }
@@ -75,7 +75,7 @@ class envioController extends AppBaseController
         $envio = $this->envioRepository->find($id);
 
         if (empty($envio)) {
-            Flash::error('Envio not found');
+            Flash::error('Envio no se ha encontrado.');
 
             return redirect(route('envios.index'));
         }
@@ -95,7 +95,7 @@ class envioController extends AppBaseController
         $envio = $this->envioRepository->find($id);
 
         if (empty($envio)) {
-            Flash::error('Envio not found');
+            Flash::error('Envio no se ha encontrado.');
 
             return redirect(route('envios.index'));
         }
@@ -116,14 +116,14 @@ class envioController extends AppBaseController
         $envio = $this->envioRepository->find($id);
 
         if (empty($envio)) {
-            Flash::error('Envio not found');
+            Flash::error('Envio no se ha encontrado.');
 
             return redirect(route('envios.index'));
         }
 
         $envio = $this->envioRepository->update($request->all(), $id);
 
-        Flash::success('Envio updated successfully.');
+        Flash::success('Envio ha sido modificado correctamente.');
 
         return redirect(route('envios.index'));
     }
@@ -142,14 +142,14 @@ class envioController extends AppBaseController
         $envio = $this->envioRepository->find($id);
 
         if (empty($envio)) {
-            Flash::error('Envio not found');
+            Flash::error('Envio no se ha encontrado.');
 
             return redirect(route('envios.index'));
         }
 
         $this->envioRepository->delete($id);
 
-        Flash::success('Envio deleted successfully.');
+        Flash::success('Envio ha sido borrado correctamente.');
 
         return redirect(route('envios.index'));
     }

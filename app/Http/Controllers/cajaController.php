@@ -60,7 +60,7 @@ class cajaController extends AppBaseController
 
         $caja = $this->cajaRepository->create($input);
 
-        Flash::success('Caja saved successfully.');
+        Flash::success('Caja ha sido guardado correctamente.');
 
         return redirect(route('cajas.index'));
     }
@@ -79,7 +79,7 @@ class cajaController extends AppBaseController
 
 
         if (empty($caja)) {
-            Flash::error('Caja not found');
+            Flash::error('Caja no se ha encontrado.');
 
             return redirect(route('cajas.index'));
         }
@@ -102,7 +102,7 @@ class cajaController extends AppBaseController
 
 
         if (empty($caja)) {
-            Flash::error('Caja not found');
+            Flash::error('Caja no se ha encontrado.');
 
             return redirect(route('cajas.index'));
         }
@@ -123,14 +123,14 @@ class cajaController extends AppBaseController
         $caja = $this->cajaRepository->find($id);
 
         if (empty($caja)) {
-            Flash::error('Caja not found');
+            Flash::error('Caja no se ha encontrado.');
 
             return redirect(route('cajas.index'));
         }
 
         $caja = $this->cajaRepository->update($request->all(), $id);
 
-        Flash::success('Caja updated successfully.');
+        Flash::success('Caja ha sido modificado correctamente.');
 
         return redirect(route('cajas.index'));
     }
@@ -149,14 +149,14 @@ class cajaController extends AppBaseController
         $caja = $this->cajaRepository->find($id);
 
         if (empty($caja)) {
-            Flash::error('Caja not found');
+            Flash::error('Caja no se ha encontrado.');
 
             return redirect(route('cajas.index'));
         }
 
         $this->cajaRepository->delete($id);
 
-        Flash::success('Caja deleted successfully.');
+        Flash::success('Caja ha sido borrado correctamente.');
 
         return redirect(route('cajas.index'));
     }

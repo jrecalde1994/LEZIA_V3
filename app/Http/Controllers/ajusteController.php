@@ -58,7 +58,7 @@ class ajusteController extends AppBaseController
 
         $ajuste = $this->ajusteRepository->create($input);
 
-        Flash::success('Ajuste saved successfully.');
+        Flash::success('Ajuste ha sido guardado correctamente.');
 
         return redirect(route('ajustes.index'));
     }
@@ -75,7 +75,7 @@ class ajusteController extends AppBaseController
         $ajuste = $this->ajusteRepository->find($id);
 
         if (empty($ajuste)) {
-            Flash::error('Ajuste not found');
+            Flash::error('Ajuste no se ha encontrado.');
 
             return redirect(route('ajustes.index'));
         }
@@ -95,7 +95,7 @@ class ajusteController extends AppBaseController
         $ajuste = $this->ajusteRepository->find($id);
 
         if (empty($ajuste)) {
-            Flash::error('Ajuste not found');
+            Flash::error('Ajuste no se ha encontrado.');
 
             return redirect(route('ajustes.index'));
         }
@@ -116,14 +116,14 @@ class ajusteController extends AppBaseController
         $ajuste = $this->ajusteRepository->find($id);
 
         if (empty($ajuste)) {
-            Flash::error('Ajuste not found');
+            Flash::error('Ajuste no se ha encontrado.');
 
             return redirect(route('ajustes.index'));
         }
 
         $ajuste = $this->ajusteRepository->update($request->all(), $id);
 
-        Flash::success('Ajuste updated successfully.');
+        Flash::success('Ajuste ha sido modificado correctamente.');
 
         return redirect(route('ajustes.index'));
     }
@@ -142,14 +142,14 @@ class ajusteController extends AppBaseController
         $ajuste = $this->ajusteRepository->find($id);
 
         if (empty($ajuste)) {
-            Flash::error('Ajuste not found');
+            Flash::error('Ajuste no se ha encontrado.');
 
             return redirect(route('ajustes.index'));
         }
 
         $this->ajusteRepository->delete($id);
 
-        Flash::success('Ajuste deleted successfully.');
+        Flash::success('Ajuste ha sido borrado correctamente.');
 
         return redirect(route('ajustes.index'));
     }

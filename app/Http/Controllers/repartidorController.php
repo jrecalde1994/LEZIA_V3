@@ -58,7 +58,7 @@ class repartidorController extends AppBaseController
 
         $repartidor = $this->repartidorRepository->create($input);
 
-        Flash::success('Repartidor saved successfully.');
+        Flash::success('Repartidor ha sido guardado correctamente.');
 
         return redirect(route('repartidors.index'));
     }
@@ -75,7 +75,7 @@ class repartidorController extends AppBaseController
         $repartidor = $this->repartidorRepository->find($id);
 
         if (empty($repartidor)) {
-            Flash::error('Repartidor not found');
+            Flash::error('Repartidor no se ha encontrado.');
 
             return redirect(route('repartidors.index'));
         }
@@ -95,7 +95,7 @@ class repartidorController extends AppBaseController
         $repartidor = $this->repartidorRepository->find($id);
 
         if (empty($repartidor)) {
-            Flash::error('Repartidor not found');
+            Flash::error('Repartidor no se ha encontrado.');
 
             return redirect(route('repartidors.index'));
         }
@@ -116,14 +116,14 @@ class repartidorController extends AppBaseController
         $repartidor = $this->repartidorRepository->find($id);
 
         if (empty($repartidor)) {
-            Flash::error('Repartidor not found');
+            Flash::error('Repartidor no se ha encontrado.');
 
             return redirect(route('repartidors.index'));
         }
 
         $repartidor = $this->repartidorRepository->update($request->all(), $id);
 
-        Flash::success('Repartidor updated successfully.');
+        Flash::success('Repartidor ha sido modificado correctamente.');
 
         return redirect(route('repartidors.index'));
     }
@@ -142,14 +142,14 @@ class repartidorController extends AppBaseController
         $repartidor = $this->repartidorRepository->find($id);
 
         if (empty($repartidor)) {
-            Flash::error('Repartidor not found');
+            Flash::error('Repartidor no se ha encontrado.');
 
             return redirect(route('repartidors.index'));
         }
 
         $this->repartidorRepository->delete($id);
 
-        Flash::success('Repartidor deleted successfully.');
+        Flash::success('Repartidor ha sido borrado correctamente.');
 
         return redirect(route('repartidors.index'));
     }

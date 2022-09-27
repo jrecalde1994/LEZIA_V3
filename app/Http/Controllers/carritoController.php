@@ -58,7 +58,7 @@ class carritoController extends AppBaseController
 
         $carrito = $this->carritoRepository->create($input);
 
-        Flash::success('Carrito saved successfully.');
+        Flash::success('Carrito ha sido guardado correctamente.');
 
         return redirect(route('carritos.index'));
     }
@@ -75,7 +75,7 @@ class carritoController extends AppBaseController
         $carrito = $this->carritoRepository->find($id);
 
         if (empty($carrito)) {
-            Flash::error('Carrito not found');
+            Flash::error('Carrito no se ha encontrado.');
 
             return redirect(route('carritos.index'));
         }
@@ -95,7 +95,7 @@ class carritoController extends AppBaseController
         $carrito = $this->carritoRepository->find($id);
 
         if (empty($carrito)) {
-            Flash::error('Carrito not found');
+            Flash::error('Carrito no se ha encontrado.');
 
             return redirect(route('carritos.index'));
         }
@@ -116,14 +116,14 @@ class carritoController extends AppBaseController
         $carrito = $this->carritoRepository->find($id);
 
         if (empty($carrito)) {
-            Flash::error('Carrito not found');
+            Flash::error('Carrito no se ha encontrado.');
 
             return redirect(route('carritos.index'));
         }
 
         $carrito = $this->carritoRepository->update($request->all(), $id);
 
-        Flash::success('Carrito updated successfully.');
+        Flash::success('Carrito ha sido modificado correctamente.');
 
         return redirect(route('carritos.index'));
     }
@@ -142,14 +142,14 @@ class carritoController extends AppBaseController
         $carrito = $this->carritoRepository->find($id);
 
         if (empty($carrito)) {
-            Flash::error('Carrito not found');
+            Flash::error('Carrito no se ha encontrado.');
 
             return redirect(route('carritos.index'));
         }
 
         $this->carritoRepository->delete($id);
 
-        Flash::success('Carrito deleted successfully.');
+        Flash::success('Carrito ha sido borrado correctamente.');
 
         return redirect(route('carritos.index'));
     }
