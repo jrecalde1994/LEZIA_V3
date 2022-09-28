@@ -1,7 +1,7 @@
 <li class="nav-item">
     <a href="{{ route('sucursales.index') }}"
        class="nav-link {{ Request::is('sucursales*') ? 'active' : '' }}">
-        <p>Sucursal</p>
+        <p>Sucursales</p>
     </a>
 </li>
 
@@ -17,7 +17,7 @@
 <li class="nav-item">
     <a href="{{ route('cajas.index') }}"
        class="nav-link {{ Request::is('cajas*') ? 'active' : '' }}">
-        <p>Caja</p>
+        <p>Cajas</p>
     </a>
 </li>
 
@@ -33,7 +33,7 @@
 <li class="nav-item">
     <a href="{{ route('clientes.index') }}"
        class="nav-link {{ Request::is('clientes*') ? 'active' : '' }}">
-        <p>Cliente</p>
+        <p>Clientes</p>
     </a>
 </li>
 
@@ -41,7 +41,7 @@
 <li class="nav-item">
     <a href="{{ route('direccions.index') }}"
        class="nav-link {{ Request::is('direccions*') ? 'active' : '' }}">
-        <p>Direccion</p>
+        <p>Direcciones</p>
     </a>
 </li>
 
@@ -49,7 +49,7 @@
 <li class="nav-item">
     <a href="{{ route('repartidors.index') }}"
        class="nav-link {{ Request::is('repartidors*') ? 'active' : '' }}">
-        <p>Repartidor</p>
+        <p>Repartidors</p>
     </a>
 </li>
 
@@ -57,7 +57,7 @@
 <li class="nav-item">
     <a href="{{ route('proveedors.index') }}"
        class="nav-link {{ Request::is('proveedors*') ? 'active' : '' }}">
-        <p>Proveedor</p>
+        <p>Proveedors</p>
     </a>
 </li>
 
@@ -65,7 +65,7 @@
 <li class="nav-item">
     <a href="{{ route('timbrados.index') }}"
        class="nav-link {{ Request::is('timbrados*') ? 'active' : '' }}">
-        <p>Timbrado</p>
+        <p>Timbrados</p>
     </a>
 </li>
 
@@ -73,7 +73,7 @@
 <li class="nav-item">
     <a href="{{ route('compras.index') }}"
        class="nav-link {{ Request::is('compras*') ? 'active' : '' }}">
-        <p>Compra</p>
+        <p>Compras</p>
     </a>
 </li>
 
@@ -81,7 +81,7 @@
 <li class="nav-item">
     <a href="{{ route('detalleCompras.index') }}"
        class="nav-link {{ Request::is('detalleCompras*') ? 'active' : '' }}">
-        <p>Detalle Compra</p>
+        <p>Detalle Compras</p>
     </a>
 </li>
 
@@ -89,7 +89,7 @@
 <li class="nav-item">
     <a href="{{ route('fotos.index') }}"
        class="nav-link {{ Request::is('fotos*') ? 'active' : '' }}">
-        <p>Foto</p>
+        <p>Fotos</p>
     </a>
 </li>
 
@@ -97,7 +97,7 @@
 <li class="nav-item">
     <a href="{{ route('productos.index') }}"
        class="nav-link {{ Request::is('productos*') ? 'active' : '' }}">
-        <p>Producto</p>
+        <p>Productos</p>
     </a>
 </li>
 
@@ -105,7 +105,7 @@
 <li class="nav-item">
     <a href="{{ route('stocks.index') }}"
        class="nav-link {{ Request::is('stocks*') ? 'active' : '' }}">
-        <p>Stock</p>
+        <p>Stocks</p>
     </a>
 </li>
 
@@ -113,7 +113,7 @@
 <li class="nav-item">
     <a href="{{ route('categorias.index') }}"
        class="nav-link {{ Request::is('categorias*') ? 'active' : '' }}">
-        <p>Categoria</p>
+        <p>Categorias</p>
     </a>
 </li>
 
@@ -121,7 +121,7 @@
 <li class="nav-item">
     <a href="{{ route('carritos.index') }}"
        class="nav-link {{ Request::is('carritos*') ? 'active' : '' }}">
-        <p>Carrito</p>
+        <p>Carritos</p>
     </a>
 </li>
 
@@ -129,7 +129,7 @@
 <li class="nav-item">
     <a href="{{ route('ventas.index') }}"
        class="nav-link {{ Request::is('ventas*') ? 'active' : '' }}">
-        <p>Venta</p>
+        <p>Ventas</p>
     </a>
 </li>
 
@@ -137,7 +137,7 @@
 <li class="nav-item">
     <a href="{{ route('entregas.index') }}"
        class="nav-link {{ Request::is('entregas*') ? 'active' : '' }}">
-        <p>Entrega</p>
+        <p>Entregas</p>
     </a>
 </li>
 
@@ -145,7 +145,7 @@
 <li class="nav-item">
     <a href="{{ route('envios.index') }}"
        class="nav-link {{ Request::is('envios*') ? 'active' : '' }}">
-        <p>Envio</p>
+        <p>Envios</p>
     </a>
 </li>
 
@@ -153,7 +153,7 @@
 <li class="nav-item">
     <a href="{{ route('vendedors.index') }}"
        class="nav-link {{ Request::is('vendedors*') ? 'active' : '' }}">
-        <p>Vendedor</p>
+        <p>Vendedors</p>
     </a>
 </li>
 
@@ -161,7 +161,7 @@
 <li class="nav-item">
     <a href="{{ route('depositos.index') }}"
        class="nav-link {{ Request::is('depositos*') ? 'active' : '' }}">
-        <p>Deposito</p>
+        <p>Depositos</p>
     </a>
 </li>
 
@@ -169,7 +169,7 @@
 <li class="nav-item">
     <a href="{{ route('ajustes.index') }}"
        class="nav-link {{ Request::is('ajustes*') ? 'active' : '' }}">
-        <p>Ajuste</p>
+        <p>Ajustes</p>
     </a>
 </li>
 
@@ -177,7 +177,7 @@
 <li class="nav-item">
     <a href="{{ route('motivoAjustes.index') }}"
        class="nav-link {{ Request::is('motivoAjustes*') ? 'active' : '' }}">
-        <p>Motivo Ajuste</p>
+        <p>Motivo Ajustes</p>
     </a>
 </li>
 

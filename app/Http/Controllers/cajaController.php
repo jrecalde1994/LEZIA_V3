@@ -75,9 +75,7 @@ class cajaController extends AppBaseController
     public function show($id)
     {
         $caja = $this->cajaRepository->find($id);
-
-
-
+        
         if (empty($caja)) {
             Flash::error('Caja no se ha encontrado.');
 

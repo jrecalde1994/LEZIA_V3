@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>Agregar Ciudad</h1>
+                    <h1>Crear Ciudad</h1>
                 </div>
             </div>
         </div>

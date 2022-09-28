@@ -6,9 +6,12 @@ use App\Http\Requests\CreatedireccionRequest;
 use App\Http\Requests\UpdatedireccionRequest;
 use App\Repositories\direccionRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\ciudad;
+use App\Models\cliente;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use DB;
 
 class direccionController extends AppBaseController
 {
@@ -31,7 +34,10 @@ class direccionController extends AppBaseController
     {
         $direccions = $this->direccionRepository->all();
 
-        return view('direccions.index')
+        $cliente = DB::table('cliente')->get();
+        $ciudad = DB::table('ciudad')->get();
+
+        return view('direccions.index',compact('cliente','ciudad'))
             ->with('direccions', $direccions);
     }
 
@@ -42,7 +48,14 @@ class direccionController extends AppBaseController
      */
     public function create()
     {
-        return view('direccions.create');
+        $ciudad = ciudad::pluck('nombre_ciudad', 'id');
+
+        $clientes = cliente::select(
+            DB::raw("CONCAT(COALESCE(`Nombre`,''),' ',COALESCE(`Apellido`,'')) AS Nombrecompleto"),'id')
+            ->pluck('Nombrecompleto', 'id')
+            ->toArray();
+
+        return view('direccions.create',compact('ciudad','clientes'));
     }
 
     /**
@@ -58,7 +71,7 @@ class direccionController extends AppBaseController
 
         $direccion = $this->direccionRepository->create($input);
 
-        Flash::success('Direccion ha sido guardado correctamente.');
+        Flash::success('Guardado correctamente.');
 
         return redirect(route('direccions.index'));
     }
@@ -75,7 +88,7 @@ class direccionController extends AppBaseController
         $direccion = $this->direccionRepository->find($id);
 
         if (empty($direccion)) {
-            Flash::error('Direccion no se ha encontrado.');
+            Flash::error('Direccion no encontrada');
 
             return redirect(route('direccions.index'));
         }
@@ -95,7 +108,7 @@ class direccionController extends AppBaseController
         $direccion = $this->direccionRepository->find($id);
 
         if (empty($direccion)) {
-            Flash::error('Direccion no se ha encontrado.');
+            Flash::error('Direccion no encontrada');
 
             return redirect(route('direccions.index'));
         }
@@ -116,14 +129,14 @@ class direccionController extends AppBaseController
         $direccion = $this->direccionRepository->find($id);
 
         if (empty($direccion)) {
-            Flash::error('Direccion no se ha encontrado.');
+            Flash::error('Direccion no encontrada');
 
             return redirect(route('direccions.index'));
         }
 
         $direccion = $this->direccionRepository->update($request->all(), $id);
 
-        Flash::success('Direccion ha sido modificado correctamente.');
+        Flash::success('Actualizada correctamente.');
 
         return redirect(route('direccions.index'));
     }
@@ -142,14 +155,14 @@ class direccionController extends AppBaseController
         $direccion = $this->direccionRepository->find($id);
 
         if (empty($direccion)) {
-            Flash::error('Direccion no se ha encontrado.');
+            Flash::error('Direccion no encontrada');
 
             return redirect(route('direccions.index'));
         }
 
         $this->direccionRepository->delete($id);
 
-        Flash::success('Direccion ha sido borrado correctamente.');
+        Flash::success('Eliminado exitoso.');
 
         return redirect(route('direccions.index'));
     }
